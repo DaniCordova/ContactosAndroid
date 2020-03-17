@@ -33,17 +33,14 @@ public class RegistrarActivity extends AppCompatActivity {
         spinner_Contacto = findViewById(R.id.spinner_contactoConfianza);
 
 
-        List<String> listaPersonas = new ArrayList<>();
 
-        List<Persona> PERSONAS = new ArrayList<>();
+        ArrayList<String> nombres = new ArrayList<>();
 
-        int c = Memory.PERSONAS.size();
-
-        for(int i = 0; i<c; i++){
-            listaPersonas.add(Memory.PERSONAS.get(i))
+        for(Persona persona : Memory.PERSONAS){
+            nombres.add(persona.nombre);
         }
 
-        spinner_Contacto.setAdapter(new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item,listaPersonas));
+        spinner_Contacto.setAdapter(new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item,nombres));
 
 
         FloatingActionButton fabRegistrar = findViewById(R.id.fab_registrar);
