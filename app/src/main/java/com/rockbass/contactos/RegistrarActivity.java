@@ -39,8 +39,8 @@ public class RegistrarActivity extends AppCompatActivity {
 
         int c = Memory.PERSONAS.size();
 
-        for(int i = 0; i<c; i++){
-            listaPersonas.add(Memory.PERSONAS.get(i))
+        for(Persona persona : Memory.PERSONAS){
+            listaPersonas.add(persona.nombre);
         }
 
         spinner_Contacto.setAdapter(new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item,listaPersonas));

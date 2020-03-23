@@ -55,6 +55,9 @@ public class MainActivity extends AppCompatActivity {
             return new RecyclerView.ViewHolder(view) {};
         }
 
+        //@override
+        
+
         @Override
         public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
             View view = holder.itemView;
