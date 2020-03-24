@@ -7,27 +7,27 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Adapter;
-import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class MainActivity extends AppCompatActivity {
 
+    private View.OnClickListener clickListener;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        FloatingActionButton buttonAgregar = findViewById(R.id.fab_agregar);
+        FloatingActionButton buttonAgregar = findViewById(R.id.fab_actualizar);
         buttonAgregar.setOnClickListener(
                 (view)->{
-                    Intent intent = new Intent(MainActivity.this, RegistrarActivity.class);
+                    Intent intent = new Intent(MainActivity.this, Contacto.class);
                     startActivity(intent);
                 }
         );
@@ -55,12 +55,23 @@ public class MainActivity extends AppCompatActivity {
             return new RecyclerView.ViewHolder(view) {};
         }
 
-        //@override
-        
+
+
 
         @Override
         public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
             View view = holder.itemView;
+
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(MainActivity.this, RegistrarActivity.class);
+                    intent.putExtra("position",position);
+                    startActivity(intent);
+                }
+            });
+
+
             Persona persona = Memory.PERSONAS.get(position);
 
             TextView nombreCompleto, edad, telefono, email, contacto;

@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Contactos</string>
+    <string name="editar_contacto_de_confianza">Editar contacto de confianza</string>
+    <string name="nombre">Nombre</string>
+    <string name="apellido_paterno">Apellido Paterno</string>
+    <string name="apellido_materno">Apellido Materno</string>
+    <string name="edad">Edad</string>
+    <string name="telefono">Telefono</string>
+    <string name="email">Email</string>
+    <string name="contacto_de_confianza">Contacto de confianza</string>
 </resources>
