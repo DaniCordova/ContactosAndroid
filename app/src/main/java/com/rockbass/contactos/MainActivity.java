@@ -4,7 +4,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -24,12 +23,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        FloatingActionButton buttonAgregar = findViewById(R.id.fab_actualizar);
+        FloatingActionButton buttonAgregar = findViewById(R.id.fab_agregar);
         buttonAgregar.setOnClickListener(
                 (view)->{
-                    Intent intent = new Intent(MainActivity.this, Contacto.class);
+                    Intent intent = new Intent(MainActivity.this, RegistrarActivity.class);
                     startActivity(intent);
                 }
+
         );
     }
 
@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(MainActivity.this, RegistrarActivity.class);
+                    Intent intent = new Intent(MainActivity.this, Contacto.class);
                     intent.putExtra("position",position);
                     startActivity(intent);
                 }

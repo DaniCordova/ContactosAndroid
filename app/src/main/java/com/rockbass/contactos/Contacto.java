@@ -6,7 +6,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -56,14 +55,14 @@ public class Contacto extends AppCompatActivity {
         Persona persona = Memory.PERSONAS.get(indice);
 
         nombre = findViewById(R.id.textViewNombre);
-        apePat=findViewById(R.id.textViewApePat);
-        apeMat = findViewById(R.id.textViewApeMat);
+        apePat=findViewById(R.id.textViewApellidoPaterno);
+        apeMat = findViewById(R.id.textViewApellidoMaterno);
 
         edad = findViewById(R.id.textViewEdad);
 
-        telefono = findViewById(R.id.textViewTel);
+        telefono = findViewById(R.id.textViewTelefono);
 
-        email = findViewById(R.id.textViewEmail2);
+        email = findViewById(R.id.textViewEmail);
 
         nombre.setText(persona.nombre);
         apePat.setText(persona.apellidoPaterno);

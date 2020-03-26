@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textViewApePat"
+        android:id="@+id/textViewApellidoPaterno"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
@@ -27,14 +27,14 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewNombre" />
 
     <TextView
-        android:id="@+id/textViewApeMat"
+        android:id="@+id/textViewApellidoMaterno"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewApePat" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewApellidoPaterno" />
 
     <TextView
         android:id="@+id/textViewEdad"
@@ -44,10 +44,10 @@
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewApeMat" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewApellidoMaterno" />
 
     <TextView
-        android:id="@+id/textViewTel"
+        android:id="@+id/textViewTelefono"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
@@ -57,17 +57,17 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewEdad" />
 
     <TextView
-        android:id="@+id/textViewEmail2"
+        android:id="@+id/textViewEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewTel" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewTelefono" />
 
     <Spinner
-        android:id="@+id/spinner"
+        android:id="@+id/spinner_contactoConfianza"
         android:layout_width="310dp"
         android:layout_height="21dp"
         android:layout_marginBottom="192dp"
