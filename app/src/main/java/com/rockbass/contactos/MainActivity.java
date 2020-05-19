@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,16 +14,30 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.rockbass.contactos.bd.ClaseContacto;
+import com.rockbass.contactos.bd.ConexionSQLiteHelper;
+import com.rockbass.contactos.bd.Utilidades;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
     private View.OnClickListener clickListener;
+    ConexionSQLiteHelper conn;
+    ArrayList <ClaseContacto> listaContactoBD;
+    ArrayList <String> listaContactoBD_String;
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        conn = new ConexionSQLiteHelper(this, "bd_contactos", null, 1);
+
+        ConsultarContactos();
+        ListaContactoObtener();
 
         FloatingActionButton buttonAgregar = findViewById(R.id.fab_agregar);
         buttonAgregar.setOnClickListener(
@@ -100,6 +116,31 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public int getItemCount() {
             return Memory.PERSONAS.size();
+        }
+    }
+
+    private void ConsultarContactos(){
+        SQLiteDatabase db=conn.getReadableDatabase();
+
+        ClaseContacto contacto1 = null;
+        listaContactoBD = new ArrayList<ClaseContacto>();
+
+        Cursor cursor= db.rawQuery("SELECT * FROM "+ Utilidades.TABLA_CONTACTO,null);
+
+        while (cursor.moveToNext()){
+            contacto1 = new ClaseContacto();
+            contacto1.setNombre(cursor.getString(0));
+            listaContactoBD.add(contacto1);
+        }
+
+
+    }
+
+    private void ListaContactoObtener(){
+        listaContactoBD_String = new ArrayList<String>();
+
+        for(int i=0;i<listaContactoBD_String.size();i++){
+            listaContactoBD_String.add(listaContactoBD.get(i).getNombre());
         }
     }
 }
